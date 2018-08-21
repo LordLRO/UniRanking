@@ -78,11 +78,11 @@
             <div class="container rank_table">
                 <table class="table table-bordered table-hover sort-table" id="subject-table">
                     <thead>
-                        <tr id="subject_table_th-ctgr">
-                        </tr>
                         <tr id="subject_expand_btn">
                         </tr>
-                        <tr id="subject_table_th-sort">
+                        <tr id="subject_table_th-ctgr">
+                        </tr>
+                        <!-- <tr id="subject_table_th-sort"> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -102,14 +102,14 @@
         </div>
         <div class="row mx-0 justify-content-center">
             <div class="container rank_table">
-                <table class="table table-bordered table-hover sort-table" id="university-table">
+                <table class="table table-bordered table-hover sort-table" id="university-table" >                  
                     <thead>
-                        <tr id="university_table_th-ctgr">
-                        </tr>
                         <tr id="university_expand_btn">
                         </tr>
-                        <tr id="university_table_th-sort">
-                        </tr>
+                        <tr id="university_table_th-ctgr">
+                        </tr>                        
+                        <!-- <tr id="university_table_th-sort">
+                        </tr> -->
                     </thead>
                     <tbody id="rank__university_table-tbody">
 
@@ -161,5 +161,5 @@
 <script type="text/javascript" src="{% static 'share/javascripts/iziToast.min.js'%}"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
 <script type="text/javascript" src="{% static 'UniRanking/javascripts/rank.js'%}"></script>
-
+<link rel="stylesheet" href="{% static 'UniRanking/stylesheets/rank.css'%}">
 {% endblock %}

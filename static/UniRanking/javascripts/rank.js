@@ -35,7 +35,7 @@ $(document).ready(function () {
         //     position: 'bottomLeft',
         // });
         var univ_th_ctgr = '';
-        var univ_th_crtr;
+        var univ_th_crtr ;
         var univ_expand = '';
         var univ_th_sort;
         
@@ -70,19 +70,19 @@ $(document).ready(function () {
             var containerWidth = $('.container').width();
             let univ_width = 200;
             let rank_width = 40;
-            univ_th_ctgr = `<th class="bg-custom-2" rowspan="2" style="width:${rank_width}px">Thứ hạng</th>
-                            <th class='rank__univ_table-category-h bg-custom-2' rowspan="2" style='width:${univ_width}px'>Trường</th>`;
+            univ_expand = `<th class="th-style" rowspan="2" style="width:${rank_width}px;">THỨ HẠNG</th>
+                            <th class='rank__univ_table-category-h th-style' rowspan="2" style='width:${univ_width}px;'>TRƯỜNG</th>`;
             var ctgr_width = (containerWidth - univ_width - rank_width) / category_length;
-            univ_th_sort = '<th> </th><th> </th>';
+            // univ_th_sort = '<th> </th><th> </th>';
             $.each(array_of_ctgr, function (ctgr_index, ctgr) {
                 let category = ctgr.criterion_category;
-                univ_th_ctgr += `<th class="p-2 ctgr comp__subj_table-category comp__subj_table-ctgr-${category.id}" category_id="${category.id}" style="width:${ctgr_width}px">${category.name}</th>`;
+                univ_th_ctgr += `<th class="th-style p-2 ctgr comp__subj_table-category comp__subj_table-ctgr-${category.id}" category_id="${category.id}" style="width:${ctgr_width}px;">${category.name}</th>`;
                 univ_expand += `<th class="p-0"><btn class="btn p-3 w-100 u-expand-btn" data-toggle="modal" data-target="#crtr-modal" ctgr-id="${category.id}" ctgr-name="${category.name}"><i>Xem thêm...</i></btn></th>`;
-                univ_th_sort += '<th> </th>';
+                // univ_th_sort += '<th> </th>';
             });
             $('#university_table_th-ctgr').html(univ_th_ctgr);
             $('#university_expand_btn').html(univ_expand);
-            $('#university_table_th-sort').html(univ_th_sort);
+            // $('#university_table_th-sort').html(univ_th_sort);
             callback();
         };
         $($(this).attr('show')).animate({
@@ -148,20 +148,20 @@ $(document).ready(function () {
             var containerWidth = $('.container').width();
             let univ_width = 200;
             let rank_width = 40;
-            subj_th_ctgr = `<th class="bg-custom-2" rowspan="2" style="width:${rank_width}px">Thứ hạng</th>
-                            <th class='rank__subj_table-category-h bg-custom-2' rowspan="2" style='width:${univ_width}px'>Trường</th>`;
+            subj_expand = `<th class="th-style" rowspan="2" style="width:${rank_width}px">THỨ HẠNG</th>
+                            <th class='rank__subj_table-category-h th-style' rowspan="2" style='width:${univ_width}px'>TRƯỜNG</th>`;
             var ctgr_width = (containerWidth - univ_width - rank_width) / category_length;
-            subj_th_sort = '<th> </th><th> </th>';
+            // subj_th_sort = '<th> </th><th> </th>';
             $.each(array_of_ctgr, function (ctgr_index, ctgr) {
                 let category = ctgr.criterion_category;
-                subj_th_ctgr += `<th class="p-0 ctgr comp__subj_table-category comp__subj_table-ctgr-${category.id}" category_id="${category.id}" style="width:${ctgr_width}px">${category.name}</th>`;
+                subj_th_ctgr += `<th class="th-style p-0 ctgr comp__subj_table-category comp__subj_table-ctgr-${category.id}" category_id="${category.id}" style="width:${ctgr_width}px">${category.name}</th>`;
                 subj_expand += `<th class="p-0"><btn class="btn p-3 w-100 s-expand-btn" data-toggle="modal" data-target="#crtr-modal" ctgr-id="${category.id}" ctgr-name="${category.name}"><i>Xem thêm...</i></btn></th>`;
-                subj_th_sort += '<th> </th>';
+                // subj_th_sort += '<th> </th>';
             });
             
             $('#subject_table_th-ctgr').html(subj_th_ctgr);
             $('#subject_expand_btn').html(subj_expand);
-            $('#subject_table_th-sort').html(subj_th_sort);
+            // $('#subject_table_th-sort').html(subj_th_sort);
             callback();
         };
         $($(this).attr('show')).animate({
@@ -499,7 +499,7 @@ $(document).ready(function () {
                 subjTablData[index].push(`${general_statistics.rank}`, `${university.name}`); // += `<tr><td class="subj-rank">${general_statistics.rank}</td><td class="subj__table_univ-name">${university.name}</td>`;
                 let scores = univ.scores;
                 for (let i = 0; i < category_length; i++) {
-                    let ctgr_id = parseInt($(`#subject_table_th-ctgr th:nth-child(${i+3})`).attr('category_id'));
+                    let ctgr_id = parseInt($(`#subject_table_th-ctgr th:nth-child(${i+1})`).attr('category_id'));
                     let score = "Chưa có dữ liệu...";
                     if (scores.length != 0) {
                         $(scores).filter(function (_i, param) {
@@ -558,7 +558,7 @@ $(document).ready(function () {
                 univTablData[index].push(`${general_statistics.rank}`, `${university.name}`); // += `<tr><td class="subj-rank">${general_statistics.rank}</td><td class="subj__table_univ-name">${university.name}</td>`;
                 let scores = univ.scores;
                 for (let i = 0; i < category_length; i++) {
-                    let ctgr_id = parseInt($(`#university_table_th-ctgr th:nth-child(${i+3})`).attr('category_id'));
+                    let ctgr_id = parseInt($(`#university_table_th-ctgr th:nth-child(${i+1})`).attr('category_id'));
                     let score = "Chưa có dữ liệu...";
                     if (scores.length != 0) {
                         $(scores).filter(function (_i, param) {
@@ -575,4 +575,26 @@ $(document).ready(function () {
         function width_setting() {
         }
     };
+
+    $('#university-table tbody').on( 'mouseenter', 'td', function () {
+            var colIdx = table.cell(this).index().column;
+ 
+            $( table.cells().nodes() ).removeClass( 'highlight' );
+            $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
+        } )
+        .on( 'mouseenter', 'tr', function() {
+            $(".highlighted").removeClass("highlighted");   
+            $(this).children().addClass("highlighted");
+    } );
+
+    $('#subject-table tbody').on( 'mouseenter', 'td', function () {
+            var colIdx = table.cell(this).index().column;
+ 
+            $( table.cells().nodes() ).removeClass( 'highlight' );
+            $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
+        } )
+        .on( 'mouseenter', 'tr', function() {
+            $(".highlighted").removeClass("highlighted");   
+            $(this).children().addClass("highlighted");
+    } );
 });

@@ -1,0 +1,44 @@
+#university-table {
+	border-radius: 6px;
+	box-shadow: rgba(0, 0, 0, 0.5) 40px 40px 40px 40px;
+	overflow: hidden;
+	-webkit-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+}
+
+#subject-table {
+	border-radius: 6px;
+/*	box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 40px 0px;*/
+	overflow: hidden;
+	/*-webkit-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);*/
+}
+
+.th-style {
+	background-color: #6D7ADD; 
+	color: white;
+}
+
+.highlight {
+    background-color: whitesmoke !important;
+}
+.highlighted {
+	background-color: whitesmoke !important;
+}
+
+.table-bordered td {
+	border: 0px;
+	background-color: white;
+} 
+
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #f4f5f8;
+}
+
+.table tbody td:nth-child(1) {
+	font-weight: bold;
+}
+
+.table tbody td:nth-child(2) {
+	font-weight: bold;
+}
