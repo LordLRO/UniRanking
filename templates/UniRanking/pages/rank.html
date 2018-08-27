@@ -41,7 +41,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-12 animated fadeInLeft">
                                 <button id="university-rank-btn" class="btn m-portlet w-100 py-3 m--regular-font-size-lg3">
                                     <i class="fa mt-2" style="float:right"></i> Xếp hạng theo theo trường</button>
                             </div>
@@ -127,14 +127,14 @@
 
     <div class="modal fade" id="crtr-modal">
         <div class="modal-dialog modal-table">
-            <div class="modal-content">
+            <div class="modal-content"  style="background-color:#d7deff">
                 <div class="modal-header">
                     <h2 class="modal-table-title">Xếp hạng nhóm tiêu chí</h2>
                     <button class="close" type="button" data-dismiss="modal">X</button>
                 </div>
                 <div class="modal-body px-4 py-2">
                     <!-- <p class="text-center">Chọn 4 tiêu chí:</p> -->
-                    <table class="rank-by-category table-bordered">
+                    <table class="rank-by-category table-bordered" id="rank-by-category-table">
                         <thead>
                             <tr class="subject_rank_criterion"></tr>
                             <tr class="subject_rank_sort"></tr>
@@ -162,4 +162,6 @@
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
 <script type="text/javascript" src="{% static 'UniRanking/javascripts/rank.js'%}"></script>
 <link rel="stylesheet" href="{% static 'UniRanking/stylesheets/rank.css'%}">
+<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.2/css/fixedHeader.dataTables.min.css">
+<script src="https://cdn.datatables.net/fixedheader/3.1.2/js/dataTables.fixedHeader.min.js" type="text/javascript"></script> -->
 {% endblock %}

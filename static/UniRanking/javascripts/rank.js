@@ -192,14 +192,14 @@ $(document).ready(function () {
             }
         });
         criterions_length = crtrs.length;
-        criterion_th += `<th class="univ-rank-th">Thứ hạng</th><th class='rank__univ_table-category' style="width:30%">Trường</th>`;
-        sort_th += '<th></th><th></th>';
+        criterion_th += `<th class="univ-rank-th th-style" rowspan="2">THỨ HẠNG</th><th class='rank__univ_table-category th-style' rowspan="2" style="width:30%;">TRƯỜNG</th>`;
+        sort_th += '';
         mData.push({ "mData": 0 });
         mData.push({ "mData": 1 });
         
         $.each(crtrs, function (index, crtr) {
-            criterion_th += `<th crtr-id="${crtr.id}">${crtr.name}</th>`;
-            sort_th += '<th></th>';
+            criterion_th += `<th crtr-id="${crtr.id}" class="th-style align-ctgr-th">${crtr.name}</th>`;
+            sort_th += '<th class="th-style"></th>';
             mData.push({"mData": index + 2 })
         });
         // console.log(mData);
@@ -261,7 +261,7 @@ $(document).ready(function () {
             // mdatatable_init = true;
             $('.rank-by-category-body').empty();
             
-            category_table = $('.rank-by-category').DataTable({
+            category_table = $('#rank-by-category-table').DataTable({
                 "language": {
                     "info": "Đang thể hiện từ trường số _START_ tới trường số _END_ trên tổng số _TOTAL_ trường",
                     "lengthMenu": "Số trường trên bảng: _MENU_ trường.",
@@ -281,6 +281,7 @@ $(document).ready(function () {
                 // paging: false,
                 // "destroy": true,
                 "aoColumns": mData,
+                // "fixedHeader": true,
                 
             });
         };
@@ -307,14 +308,14 @@ $(document).ready(function () {
             }
         });
         criterions_length = crtrs.length;
-        criterion_th += `<th class="univ-rank-th">Thứ hạng</th><th class='rank__univ_table-category' style="width:30%">Trường</th>`;
-        sort_th += '<th></th><th></th>';
+        criterion_th += `<th class="univ-rank-th th-style" rowspan="2">THỨ HẠNG</th><th class='rank__univ_table-category th-style' rowspan="2" style="width:30%">TRƯỜNG</th>`;
+        sort_th += '';
         mData.push({ "mData": 0 });
         mData.push({ "mData": 1 });
         
         $.each(crtrs, function (index, crtr) {
-            criterion_th += `<th crtr-id="${crtr.id}">${crtr.name}</th>`;
-            sort_th += '<th></th>';
+            criterion_th += `<th crtr-id="${crtr.id}" class="th-style align-ctgr-th">${crtr.name}</th>`;
+            sort_th += '<th class="th-style"></th>';
             mData.push({"mData": index + 2 })
         });
         // console.log(mData);
@@ -396,6 +397,7 @@ $(document).ready(function () {
                 // paging: false,
                 // "destroy": true,
                 "aoColumns": mData,
+                // "fixedHeader": true,
                 
             });
         };
@@ -436,7 +438,7 @@ $(document).ready(function () {
 
         $("#sector__area").html(pane);
         $("#sector__area").children().each(function () {
-            $(this).addClass('animated fadeInDown');
+            $(this).addClass('animated fadeInRight');
         });
     };
 
@@ -486,6 +488,7 @@ $(document).ready(function () {
                     "pageLength": 10,
                     "data": subjTablData,
                     "autoWidth": true,
+                    // "fixedHeader": true,
                 });
                 
             });
@@ -546,6 +549,7 @@ $(document).ready(function () {
                 "pageLength": 10,
                 "data": univTablData,
                 // "autoWidth": true,
+                // "fixedHeader": true,
             });
         });
 
@@ -592,6 +596,17 @@ $(document).ready(function () {
  
             $( table.cells().nodes() ).removeClass( 'highlight' );
             $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
+        } )
+        .on( 'mouseenter', 'tr', function() {
+            $(".highlighted").removeClass("highlighted");   
+            $(this).children().addClass("highlighted");
+    } );
+
+    $('#rank-by-category-table tbody').on( 'mouseenter', 'td', function () {
+            var colIdx = category_table.cell(this).index().column;
+
+            $( category_table.cells().nodes() ).removeClass( 'highlight' );
+            $( category_table.column( colIdx ).nodes() ).addClass( 'highlight' );
         } )
         .on( 'mouseenter', 'tr', function() {
             $(".highlighted").removeClass("highlighted");   
